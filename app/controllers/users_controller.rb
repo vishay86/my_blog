@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
 
   def new
     @user = User.new
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'Welcome! Sign Up was successful'
       redirect_to articles_path
-      
     else
       render 'new'
     end
@@ -27,6 +26,9 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def show
   end
 
   private
